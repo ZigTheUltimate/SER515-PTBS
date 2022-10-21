@@ -1,3 +1,7 @@
+import DataTypes.Buyer;
+import DataTypes.Person;
+import DataTypes.Seller;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -12,6 +16,8 @@ public class Login extends JDialog implements ActionListener {
     private static JTextField username;
     private static JButton button;
     private static JPasswordField Password;
+
+    Person user;
 
     Map<String, String> buyers = new HashMap<>();
     Map<String, String> sellers = new HashMap<>();
@@ -90,13 +96,17 @@ public class Login extends JDialog implements ActionListener {
 
         if (buyers.containsKey(Username)){
             if (Password1.equals(buyers.get(Username))){
-                this.dispose();
+                user = new Buyer(Username);
+                setVisible(false);
+                dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrect Password");
             }
         } else if (sellers.containsKey(Username)){
             if (Password1.equals(sellers.get(Username))){
-                this.dispose();
+                user = new Seller(Username);
+                setVisible(false);
+                dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Incorrect Password");
             }
@@ -106,5 +116,7 @@ public class Login extends JDialog implements ActionListener {
     }
 
     public Person showLogin() {
+        this.setVisible(true);
+        return user;
     }
 }
