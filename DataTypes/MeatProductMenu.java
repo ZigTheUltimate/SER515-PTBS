@@ -1,5 +1,6 @@
 package DataTypes;
 
+import Database.UserType;
 import Utilities.DataReader;
 
 import java.io.File;
@@ -12,8 +13,8 @@ public class MeatProductMenu extends ProductMenu{
 
     Map<String, String> meatProducts = new HashMap<>();
 
-    public MeatProductMenu(int userType){
-        this.userType = userType;
+    public MeatProductMenu(UserType userType){
+        super(userType);
         populateMeatProducts();
         initMenu(meatProducts);
     }

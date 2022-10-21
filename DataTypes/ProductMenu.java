@@ -1,5 +1,6 @@
 package DataTypes;
 
+import Database.UserType;
 import Utilities.DataReader;
 
 import javax.swing.*;
@@ -16,6 +17,10 @@ public abstract class ProductMenu extends JDialog {
     JTable productsTable;
 
     JPanel mainPanel;
+
+    ProductMenu(UserType userType){
+        this.userType = userType.ordinal();
+    }
 
 
     public void initMenu(Map<String, String> productsList){

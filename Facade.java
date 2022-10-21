@@ -23,6 +23,8 @@ public class Facade extends JFrame{
 
     private JPanel mainPanel= new JPanel();
 
+    private JPanel addTradePanel = new JPanel();
+
     Facade(){
         this.setSize(800, 800);
         mainPanel.add(addTradeBtn);
@@ -33,8 +35,7 @@ public class Facade extends JFrame{
         addTradeBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //TODO: Implement Add Trade Functionality
-
+                addTrading();
             }
         });
 
@@ -92,7 +93,9 @@ public class Facade extends JFrame{
         return false;
     }
 
-    public void addTrading(){}
+    public void addTrading(){
+        thePerson.createProductMenu(    );
+    }
 
     public void viewTrading(){}
 

@@ -1,6 +1,11 @@
 package DataTypes;
 
-public class Buyer extends Person{
+import Database.UserType;
+import Interfaces.ChoiceDialog;
+
+import javax.swing.*;
+
+public class Buyer extends Person {
     public Buyer(String username) {
         super(username);
     }
@@ -12,6 +17,6 @@ public class Buyer extends Person{
 
     @Override
     public ProductMenu createProductMenu() {
-        return null;
+        return new MeatProductMenu(UserType.Buyer);
     }
 }
